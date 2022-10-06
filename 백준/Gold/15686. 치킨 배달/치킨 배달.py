@@ -5,6 +5,7 @@ N, M = map(int, input().split())
 city_list = [list(map(int, input().split())) for _ in range(N)]
 
 # 집은 1, 치킨집은 2
+# list 에 각각 추가하기
 chicken_list = []
 house_list = []
 for i in range(N):
@@ -28,9 +29,9 @@ for chicken in chickens:
             if chicken_distance < min_V:
                 min_V = chicken_distance
         total += min_V
+        if total > result:
+            break
     if result > total:
         result = total
 
 print(result)
-
-
