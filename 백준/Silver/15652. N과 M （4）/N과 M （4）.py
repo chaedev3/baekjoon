@@ -1,23 +1,21 @@
-# input 받기
+'''
+중복 가능, 비내림차순(오름차순), 오름차순으로 출력
+'''
+
+
+def recursion(depth):
+    if depth == M:
+        print(*result)
+        return
+
+    for i in range(1, N + 1):
+        if depth == 0 or result[-1] <= i:
+            result.append(i)
+            recursion(depth + 1)
+            result.pop()
+
+
 N, M = map(int, input().split())
+result = []
+recursion(0)
 
-
-# 순서가 없는 복원 추출
-def pick(n, picked, to_pick):
-    if to_pick == 0:
-        return print(*picked)
-
-    if not picked:
-        smallest = 1
-    else:
-        smallest = picked[-1]
-
-    # smallest = 0 if not picked else picked[-1]
-
-    for i in range(smallest, n + 1):
-        picked.append(i)
-        pick(n, picked, to_pick - 1)
-        picked.pop()
-
-
-pick(N, [], M)
