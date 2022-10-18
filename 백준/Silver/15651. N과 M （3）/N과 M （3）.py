@@ -1,21 +1,8 @@
-'''
-중복 가능
-- visited 없어도 됨
-'''
-
-
-def recursion(depth):
-    if depth == M:
-        print(*result)
-        return
-
-    for i in range(1, N + 1):
-        result.append(i)
-        recursion(depth + 1)
-        result.pop()
-
+from itertools import product
 
 N, M = map(int, input().split())
-result = []
+num_list = list(range(1, N + 1))
+result = list(product(num_list, repeat=M))
+for r in result:
+    print(*r)
 
-recursion(0)
