@@ -12,10 +12,11 @@ for _ in range(T):
     time_list = [0] + list(map(int, input().split()))
     graph = [[] for _ in range(N + 1)]
     indegree = [0] * (N + 1)    # 진입차수
-    dp = [0 for _ in range(N + 1)]
+    dp = [0 for _ in range(N + 1)]  # 해당 건물까지 걸리는 시간
 
     for _ in range(K):
         X, Y = map(int, input().split())
+        # 모든 간선의 정보를 담으면서 indegree 테이블을 채워줌
         graph[X].append(Y)
         indegree[Y] += 1
     # W: 백준이가 승리하기 위해 건설해야 할 건물의 번호
@@ -23,6 +24,7 @@ for _ in range(T):
 
     que = deque([])
     for i in range(1, N + 1):
+        # indegree가 0인 정점들을 큐에 넣어줌
         if indegree[i] == 0:
             que.append(i)
             dp[i] = time_list[i]
