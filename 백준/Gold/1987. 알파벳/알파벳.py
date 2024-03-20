@@ -1,9 +1,11 @@
+import sys
+input = sys.stdin.readline 
+
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
-
 def dfs(x, y):
-    global answer
+    answer = 1 
     stack = set([(x, y, words[x][y])])
     while stack:
         x, y, alp = stack.pop()
@@ -18,6 +20,4 @@ def dfs(x, y):
 
 R, C = map(int, input().split())
 words = [list(map(str, input())) for _ in range(R)]
-answer = 1
 print(dfs(0, 0))
-
