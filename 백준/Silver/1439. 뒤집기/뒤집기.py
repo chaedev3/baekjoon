@@ -1,20 +1,19 @@
-number = input()
-split_list = number.split('1')
-cnt = 0
-for s in split_list:
-    if '0' in s:
-        cnt += 1
-zero = cnt
+import sys
+input = sys.stdin.readline 
 
+str_list = str(input().strip())
 
-split_list2 = number.split('0')
-cnt2 = 0
-for p in split_list2:
-    if '1' in p:
-        cnt2 += 1
-one = cnt2
+str1 = str_list.split('0')
+str2 = str_list.split('1')
 
-if one <= zero:
-    print(one)
-else:
-    print(zero)
+count1 = 0 
+for s in str1:
+    if s != '':
+        count1 += 1 
+
+count2 = 0
+for s in str2:
+    if s != '':
+        count2 += 1
+
+print(min(count1, count2)) 
