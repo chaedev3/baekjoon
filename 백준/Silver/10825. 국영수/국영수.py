@@ -1,6 +1,17 @@
-N = int(input())
-score_list = [tuple(map(str, input().split())) for _ in range(N)]
-sorted_list = sorted(score_list, key=lambda x: (-int(x[1]), int(x[2]), -int(x[3]), x[0]))
+import sys
+input = sys.stdin.readline
 
-for idx in range(N):
-    print(sorted_list[idx][0])
+# 학생 수 n 
+n = int(input())
+
+arr = []
+for _ in range(n):
+    name, kor, eng, math = map(str, input().split())
+    arr.append([name, int(kor), int(eng), int(math)])
+
+# 이거는 말이죵 ~ 
+# lambda로 풀면 됩니다앙~~
+sorted_list = sorted(arr, key=lambda person: (-person[1], person[2], -person[3], person[0]))
+
+for i in range(n):
+    print(sorted_list[i][0])
